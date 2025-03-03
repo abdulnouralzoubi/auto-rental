@@ -39,7 +39,7 @@ class carSearchController extends Controller
         }
 
         // Add the 'status' filter to only show available cars
-        $query->where('status', '=', 'available');
+        // $query->where('status', '=', 'available');
 
         // Execute the query and paginate the results
         $cars = $query->paginate(9);

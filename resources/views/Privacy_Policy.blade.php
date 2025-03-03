@@ -1,15 +1,14 @@
 @extends('layouts.myapp')
 @section('content')
-    <div class="flex flex-col justify-center items-center gap-12 my-8 mx-auto max-w-screen-xl ">
-        <img src="/images/logos/LOGO.png" alt=" logo" class="w-[150px]">
+    <div class="flex flex-col justify-center items-center gap-10 my-8 mx-auto max-w-screen-xl ">
+        <img src="/images/logo-mmc-new.webp" class="w-[150px]">
         <h2 class="text-5xl font-medium">Privacy Policy</h2>
         <div class=" text-start flex flex-col  gap-8 w-2/3">
 
             <p>
-                RealRentCar ("we," "us," or "our") operates the RealRentCar website and app
+                RoadCoders operates the Rent Rover website and app
                 ("Platform"). This Privacy Policy outlines how we collect, use, and disclose personal information from users
-                of
-                the Platform. By accessing and using our Platform, you consent to the practices described in this Privacy
+                of the Platform. By accessing and using our Platform, you consent to the practices described in this Privacy
                 Policy.
             </p>
 
@@ -32,8 +31,6 @@
                 the
                 Platform and provide personalized content.
             </p>
-
-
 
             <h3 class="text-xl font-medium">
                 Data Security: </h3>
