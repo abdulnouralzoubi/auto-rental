@@ -17,7 +17,7 @@
             <h2 class="text-start mt-4 text-gray-500 ">Current Reservation Status: <span
                     class="text-lg text-gray-800">{{ $reservation->status }}</span></h2>
             <div>
-                <form action="{{ route('updateStatus', ['reservation' => $reservation->id]) }}" method="POST">
+                <form action="{{ route('lessor.updateStatus', ['reservation' => $reservation->id]) }}" method="POST">
                     @csrf
                     @method("PUT")
                     <div class="my-5 w-full flex items-center">
@@ -32,7 +32,7 @@
                         </select>
                     </div>
                     <div class="flex justify-center mt-12">
-                        <a href="{{ route('adminDashboard') }}" class="p-3 w-full text-white text-center rounded-md me-2 bg-red-600 hover:bg-red-800" ><button >Cancel</button></a>
+                        <a href="{{ route('lessorDashboard') }}" class="p-3 w-full text-white text-center rounded-md me-2 bg-red-600 hover:bg-red-800" ><button >Cancel</button></a>
                         <button type="submit" class="p-3 w-full text-white rounded-md bg-blue-500 hover:bg-blue-700">Save</button>
                     </div>
                 </form>

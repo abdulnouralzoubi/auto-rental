@@ -1,7 +1,7 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="flex flex-col items-center justify-center max-w-screen-xl mx-auto my-20 ">
-        <form class="w-full " action="{{ route('cars.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="w-full " action="{{ route('lessor.cars.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="md:w-2/3 w-5/6 md:px-24 px-4 pb-8 mx-auto mt-2 space-y-12 bg-white border-2 border-gray-600 rounded-md">
                 <div class="pb-12 border-b border-gray-900/10">
@@ -151,7 +151,7 @@
 
 
                 <div class="flex items-center justify-center mb-6 gap-x-6">
-                    <a href="{{route('cars.index')}}"
+                    <a href="{{route('lessor.cars.index')}}"
                         class="w-20 p-1 text-sm font-semibold leading-6 text-center text-gray-900 border-2 rounded-md border-pr-200 hover:bg-white bg-sec-300">Cancel</a>
                     <button type="submit"
                         class="w-1/3 px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-pr-400 hover:bg-pr-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pr-400">Save</button>

@@ -62,11 +62,8 @@
                             </div>
                             {{-- New Date Input --}}
                             <div class="sm:col-span-full">
-                                <label for="reservation"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Reservation
-                                    Dates</label>
-                                <x-flatpickr range id="laravel-flatpickr" name="reservation_dates" class="w-full rounded-md"
-                                    placeholder="Reservation Dates" />
+                                <label for="reservation" class="block text-sm font-medium leading-6 text-gray-900">Reservation Dates</label>
+                                <x-flatpickr range id="myDatePicker" name="reservation_dates" class="w-full rounded-md" placeholder="Reservation Dates" />
                             </div>
                         </div>
                         <div class="mt-12 md:block hidden  ">

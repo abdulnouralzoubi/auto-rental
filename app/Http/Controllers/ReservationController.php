@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use LDAP\Result;
 
 class ReservationController extends Controller
 {
@@ -25,7 +26,8 @@ class ReservationController extends Controller
     {
         $user = auth()->user();
         $car = Car::find($car_id);
-        return view('reservation.create', compact('car', 'user'));
+        $car_reservation = Reservation::where('car_id', $car_id)->get();
+        return view('reservation.create', compact('car', 'user', 'car_reservation'));
     }
 
     /**
@@ -112,7 +114,12 @@ class ReservationController extends Controller
     public function editStatus(Reservation $reservation)
     {
         $reservation = Reservation::find($reservation->id);
-        return view('admin.updateStatus', compact('reservation'));
+
+        if (auth()->user()->role === 'admin') {
+            return view('admin.updateStatus', compact('reservation'));
+        } else {
+            return view('lessor.updateStatus', compact('reservation'));
+        }
     }
 
     public function updateStatus(Reservation $reservation, Request $request)
@@ -120,12 +127,17 @@ class ReservationController extends Controller
         $reservation = Reservation::find($reservation->id);
         $reservation->status = $request->status;
         $car = $reservation->car;
-        if($request->status == 'Ended' || $request->status == 'Canceled' ){
-            $car->status = 'Available';
-            $car->save();
-        }
+        // if($request->status == 'Ended' || $request->status == 'Canceled' ){
+        //     $car->status = 'Available';
+        //     $car->save();
+        // }
         $reservation->save();
-        return redirect()->route('adminDashboard');
+
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('adminDashboard');
+        } else {
+            return redirect()->route('lessorDashboard');
+        }
     }
 
     /**

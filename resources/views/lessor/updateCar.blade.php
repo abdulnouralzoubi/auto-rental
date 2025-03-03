@@ -1,7 +1,7 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="my-20 flex flex-col justify-center  items-center mx-auto max-w-screen-xl ">
-        <form class=" w-full" action="{{ route('cars.update', ['car' => $car->id]) }}" method="POST"
+        <form class=" w-full" action="{{ route('lessor.cars.update', ['car' => $car->id]) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')

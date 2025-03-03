@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\LesCarController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\clientCarController;
 use App\Http\Controllers\adminDashboardController;
@@ -19,7 +20,14 @@ use App\Models\Reservation;
 
 // ------------------- guest routes --------------------------------------- //
 Route::get('/', function () {
-    $cars = Car::take(6)->where('status', '=', 'available')->get();
+    $cars = Car::where(function ($query) {
+        $today = now();
+        $query->whereDoesntHave('reservations')
+              ->orWhereHas('reservations', function ($query) use ($today) {
+                  $query->where('start_date', '>=', $today->copy()->addHours(12))
+                        ->orWhere('end_date', '<', $today);
+              });
+    })->take(6)->get();
     return view('home', compact('cars'));
 })->name('home');
 
@@ -38,6 +46,7 @@ Route::get('admin/login', [LoginController::class, 'showLoginForm'])->name('admi
 Route::post('admin/login', [LoginController::class, 'login'])->name('admin.login.submit');
 
 Route::redirect('/admin', 'admin/login');
+Route::redirect('/lessor', '/login');
 
 Route::get('/privacy_policy',
 function () {
@@ -97,14 +106,13 @@ Route::prefix('lessor')->middleware('lessor')->group(function () {
         '/dashboard',
         lessorDashboardController::class
     )->name('lessorDashboard');
-
-    Route::resource('cars', CarController::class)->names('lessor.cars');
+    Route::resource('cars', LesCarController::class)->names('lessor.cars');
 
     // Route::resource('reservations', ReservationController::class);
 
     // Common routes for reservations with lessor prefix and middleware
-    Route::get('/updateReservation/{reservation}', [ReservationController::class, 'editStatus'])->name('lessor.editStatus');
-    Route::put('/updateReservation/{reservation}', [ReservationController::class, 'updateStatus'])->name('lessor.updateStatus');
+    Route::get('/updateReserv/{reservation}', [ReservationController::class, 'editStatus'])->name('lessor.editStatus');
+    Route::put('/updateReserv/{reservation}', [ReservationController::class, 'updateStatus'])->name('lessor.updateStatus');
 
     // Route::delete('/deleteUser/{user}', [usersController::class, 'destroy'])->name('deleteUser');
 });
@@ -132,8 +140,3 @@ Auth::routes();
 
 // --------------------------------------------------------------------------//
 
-// --------------------------------------------------------------------------//
-Route::get('/test',
-function () {
-    return view('index');
-})->name('test');

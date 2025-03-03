@@ -1,17 +1,28 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="my-20 flex flex-col justify-center  items-center mx-auto max-w-screen-xl">
-        <a href="{{ route('cars.create') }}">
-            <button class="mb-6 bg-pr-400 p-2 text-white drop-shadow-lg hover:bg-pr-600 hover:cursor-pointer rounded-md ">
+        <div class="flex justify-center items-center w-full gap-4">
+            <a href="{{ route('lessorDashboard') }}">
+                <button class="mb-6 bg-[#1f2937] p-2 text-white drop-shadow-lg hover:bg-blue-600 hover:cursor-pointer rounded-md ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-8 h-8 inline">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                stroke="currentColor" class="w-8 h-8 inline">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15 19l-7-7 7-7" />
+                </svg>
+                Dashboard
+                </button>
+            </a>
+            <a href="{{ route('lessor.cars.create') }}">
+                <button class="mb-6 bg-pr-400 p-2 text-white drop-shadow-lg hover:bg-pr-600 hover:cursor-pointer rounded-md ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8 inline">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Add New Car
-
-            </button>
-        </a>
+                </button>
+            </a>
+        </div>
         <div class=" relative overflow-x-auto shadow-md sm:rounded-lg w-full  ">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mx-2">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -34,7 +45,7 @@
                         <th scope="col" class="px-6 py-3">
                             quantity
                         </th>
-                        
+
                         <th scope="col" class="px-6 py-3">
                             reserved
                         </th>
@@ -70,14 +81,15 @@
                             <td class="px-6 py-4">
                                 {{ $car->quantity }}
                             </td>
-                            
+
                             <td class="px-6 py-4">
                                 {{ $car->status }}
                             </td>
+
                             <td class="flex my-4 py-3  px-6  space-x-3 ">
-                                <a href="{{ route('cars.edit', ['car' => $car->id]) }}"
+                                <a href="{{ route('lessor.cars.edit', ['car' => $car->id]) }}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                <form action="{{ route('cars.destroy', ['car' => $car->id]) }}" method="POST">
+                                <form action="{{ route('lessor.cars.destroy', ['car' => $car->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
