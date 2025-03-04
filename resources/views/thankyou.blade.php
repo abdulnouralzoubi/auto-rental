@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Thank you</title>
     @vite('resources/css/app.css')
-    <link rel="icon" type="image/x-icon" href="/images/logos/LOGOtext.png">
+    <link rel="icon" type="image/x-icon" href="/images/logo-mmc-new.webp">
 </head>
 
 <body class="mx-auto max-w-screen-xl bg-gray-200">
     <div class="h-screen bg-gray-200 flex justify-center items-center ">
         <div class="bg-white md:w-3/5 h-4/5 rounded-lg mx-4 shadow-xl flex flex-col justify-start items-center gap-8">
             <div class="w-32 mt-10">
-                <img loading="lazy"  src="/images/logos/LOGO.png" alt="">
+                <img loading="lazy"  src="/images/logo-mmc-new.webp" alt="">
             </div>
             <div class="">
-                <h1 class="font-car font-bold text-gray-900 text-6xl text-center">Thank You ❤️</h1>
-                <p class="font-car text-center">Thank you for choosing and trusting our car company</p>
+                <h1 class="font-car font-bold text-gray-900 text-6xl text-center">Thank You!</h1>
+                <p class="font-car text-center">Thank you for using our web application to make your reservation.</p>
             </div>
             <div class="relative bg-gray-200 md:w-3/5 m-4 md:mt-10">
                 <div

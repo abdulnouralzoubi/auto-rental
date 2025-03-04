@@ -352,8 +352,11 @@
                                     <a href="https://laravel.com/" target='_blank'="hover:underline">Laravel 10.x</a>
                                 </li>
                                 <li>
-                                    <a href="https://getbootstrap.com/" target='_blank'
-                                        class="hover:underline">Bootstrap 5</a>
+                                    {{-- <a href="https://getbootstrap.com/" target='_blank'
+                                        class="hover:underline">Tailwind</a> --}}
+                                    <a href="https://tailwindcss.com/" target='_blank'
+                                        class="hover:underline">Tailwind CSS</a>
+
                                 </li>
                             </ul>
                         </div>

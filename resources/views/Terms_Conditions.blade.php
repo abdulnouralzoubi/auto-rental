@@ -60,7 +60,7 @@
                 Contact Us:</h3>
             <p class=" ms-4">
                 If you have any questions or concerns about our Privacy Policy or Terms & Conditions, please contact us at:
-                realrentcar@email.com
+                Rent.Rover@outlook.com
 
             </p>
         </div>

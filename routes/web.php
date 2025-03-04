@@ -63,7 +63,6 @@ function () {
 
 
 
-
 // ------------------- admin routes --------------------------------------- //
 
 Route::prefix('admin')->middleware('admin')->group(function () {

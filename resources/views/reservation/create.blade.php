@@ -9,7 +9,7 @@
                     {
                         from: "{{ $reservation->start_date }}",
                         to: "{{ $reservation->end_date }}"
-                    },
+                    }
                 @endforeach
             ];
             console.log(disabledDates);
