@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'RealRentCar') }}</title>
+    <title>{{ config('app.name', 'Rent Rover') }}</title>
     {{-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- sweet alert --}}
@@ -352,9 +352,8 @@
                                     <a href="https://laravel.com/" target='_blank'="hover:underline">Laravel 10.x</a>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" target='_blank'
-                                        class="hover:underline">Tailwind
-                                        CSS</a>
+                                    <a href="https://getbootstrap.com/" target='_blank'
+                                        class="hover:underline">Bootstrap 5</a>
                                 </li>
                             </ul>
                         </div>

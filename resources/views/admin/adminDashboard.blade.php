@@ -23,10 +23,10 @@
                                 </div>
                                 <div>
                                     <p class="text-lg font-medium text-pr-400 ">
-                                        Total clients
+                                        Total users
                                     </p>
                                     <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                        {{ $clients + $admins }} (admins: {{ $admins }}) </p>
+                                        {{ $clients + $lessors + $admins }} (admins: {{ $admins }}, lessors: {{ $lessors }}, clients: {{ $clients }}) </p>
                                 </div>
                             </div>
                         </a>

@@ -73,7 +73,7 @@ class ReservationController extends Controller
         $reservation->payment_status = 'Pending';
         $reservation->save();
 
-        $car->status = 'Reserved';
+        // $car->status = 'Reserved';
         $car->save();
 
         return view('thankyou',['reservation'=>$reservation] );

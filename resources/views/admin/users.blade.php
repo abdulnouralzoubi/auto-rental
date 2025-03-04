@@ -5,15 +5,15 @@
         {{-- Admins --}}
         <div id="reservations" class="mt-12">
             <div class="flex align-middle justify-center">
-                <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
-                <p class="my-2 mx-8  p-2 font-car font-bold text-gray-600 text-lg ">Admins</p>
-                <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
-                <a href="{{ route('addAdmin') }}" class="flex  w-40  border-2 border-pr-500 hover:text-white hover:bg-pr-400 font-car font-medium p-1 " >
-                    <button>add new admin</button>
-                </a>
-                <hr>
+            <hr class="mt-8 h-0.5 w-1/2 bg-pr-500">
+            <p class="my-2 mx-8 p-2 font-car font-bold text-gray-600 text-lg">Admins</p>
+            <hr class="mt-8 h-0.5 w-1/2 bg-pr-500">
             </div>
-
+            <div class="flex justify-center mt-4">
+            <a href="{{ route('addAdmin') }}" class="flex items-center justify-center w-40 border-2 border-pr-500 text-pr-500 hover:text-white hover:bg-pr-400 font-car font-medium p-2 rounded-md">
+                <button class="w-full">Add New Admin</button>
+            </a>
+            </div>
         </div>
 
         <div class="grid md:grid-cols-3  gap-6 mt-6">
@@ -31,10 +31,64 @@
 
         </div>
 
+        {{-- lessors --}}
+
+
+        <div id="lessors" class="mt-12">
+            <div class="flex align-middle justify-center">
+                <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
+                <p class="my-2 mx-8  p-2 font-car font-bold text-gray-600 text-lg ">Lessors</p>
+                <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="w-full overflow-hidden rounded-lg shadow-xs mb-6">
+            <div class="w-full overflow-x-auto">
+            <table class="w-full whitespace-no-wrap overflow-scroll table-auto text-center">
+                <thead>
+                <tr
+                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <th class="text-center px-4 py-3">Lessor</th>
+                    <th class="text-center px-4 py-3 w-48">Name</th>
+                    <th class="text-center px-4 py-3 w-24">Email</th>
+                    <th class="text-center px-4 py-3 w-24">Joined at</th>
+                </tr>
+                </thead>
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                @forelse ($lessors as $lessor)
+                    <tr class="text-gray-700 dark:text-gray-400">
+                    <td class="px-4 py-3 text-sm w-1/12">
+                        <img loading="lazy" src="{{ $lessor->avatar }}" alt="">
+                    </td>
+                    <td class="px-4 py-3 text-sm">
+                        <p>{{ $lessor->name }}</p>
+                    </td>
+                    <td class="px-4 py-3 text-sm">
+                        <p>{{ $lessor->email }}</p>
+                    </td>
+                    <td class="px-4 py-3 text-sm w-32">
+                        <p>{{ Carbon\Carbon::parse($lessor->created_at)->format('Y-m-d') }}</p>
+                    </td>
+                    </tr>
+                @empty
+                    <tr>
+                    <td colspan="4" class="px-4 py-3 text-sm text-center">No lessors found</td>
+                    </tr>
+                @endforelse
+                </tbody>
+            </table>
+            </div>
+            <div class="flex justify-center my-6 w-full">
+                {{ $lessors->links('pagination::tailwind') }}
+            </div>
+        </div>
+
 
         {{-- clients --}}
 
-        <div id="reservations" class="mt-12">
+        <div id="reservations" class="mt-6">
             <div class="flex align-middle justify-center">
                 <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
                 <p class="my-2 mx-8  p-2 font-car font-bold text-gray-600 text-lg ">Clients</p>
@@ -44,7 +98,7 @@
 
         </div>
 
-        <div class="w-full overflow-hidden rounded-lg shadow-xs mb-12">
+        <div class="w-full overflow-hidden rounded-lg shadow-xs mb-6">
             <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap overflow-scroll table-auto text-center">
                     <thead>

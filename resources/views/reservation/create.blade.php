@@ -1,5 +1,47 @@
 @extends('layouts.myapp')
 @section('content')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var flatpickrElement = document.getElementById('myflatpickr');
+        if (flatpickrElement) {
+            var disabledDates = [
+                @foreach($car_reservation as $reservation)
+                    {
+                        from: "{{ $reservation->start_date }}",
+                        to: "{{ $reservation->end_date }}"
+                    },
+                @endforeach
+            ];
+            console.log(disabledDates);
+
+            flatpickrElement.flatpickr({
+                mode: "range",
+                dateFormat: "Y-m-d",
+                disable: disabledDates,
+                onChange: function(selectedDates, dateStr, instance) {
+                    if (selectedDates.length === 2) {
+                        var startDate = selectedDates[0];
+                        var endDate = selectedDates[1];
+
+                        if (startDate && endDate && startDate <= endDate) {
+                            var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+                            var pricePerDay = {{ $car->price_per_day }};
+                            var totalPrice = duration * pricePerDay;
+                            document.getElementById('duration').innerText = `Estimated Duration: ${duration} days`;
+                            document.getElementById('total-price').innerText = `Estimated Price: ${totalPrice} $`;
+                        } else {
+                            document.getElementById('duration').innerText = 'Estimated Duration: -- days';
+                            document.getElementById('total-price').innerText = 'Estimated Price: -- $';
+                        }
+                    } else {
+                        document.getElementById('duration').innerText = 'Estimated Duration: -- days';
+                        document.getElementById('total-price').innerText = 'Estimated Price: -- $';
+                    }
+                }
+            });
+        }
+    });
+</script>
     <div class="mx-auto max-w-screen-xl bg-white rounded-md p-6 m-8 ">
         <div class="flex justify-between md:flex-row flex-col ">
             {{-- -------------------------------------------- left -------------------------------------------- --}}
@@ -61,10 +103,12 @@
                                 @enderror
                             </div>
                             {{-- New Date Input --}}
+
                             <div class="sm:col-span-full">
                                 <label for="reservation" class="block text-sm font-medium leading-6 text-gray-900">Reservation Dates</label>
-                                <x-flatpickr range id="myDatePicker" name="reservation_dates" class="w-full rounded-md" placeholder="Reservation Dates" />
+                                <input type="text" id="myflatpickr" name="reservation_dates" class="w-full rounded-md" placeholder="Reservation Dates" />
                             </div>
+
                         </div>
                         <div class="mt-12 md:block hidden  ">
                             <button type="submit"
@@ -106,17 +150,11 @@
 
 
                 <div class=" w-full   mt-8 ms-8">
-                    <p id="duration" class="font-car text-gray-600 text-lg ms-2">Estimated Duration: <span
-                            class="mx-2 font-car text-md font-medium text-gray-700 border border-pr-400 p-2 rounded-md "> --
-                            days</span>
-                    </p>
+                    <p id="duration" class="font-car text-gray-600 text-lg ms-2">Estimated Duration: -- days</p>
                 </div>
 
                 <div class=" w-full   mt-8 ms-8">
-                    <p id="total-price" class="font-car text-gray-600 text-lg ms-2">Estimated Price: <span
-                            class="mx-2 font-car text-md font-medium text-gray-700 border border-pr-400 p-2 rounded-md "> --
-                            $</span>
-                    </p>
+                    <p id="total-price" class="font-car text-gray-600 text-lg ms-2">Estimated Price: -- $</p>
                 </div>
                 <div id="mobile_submit_button" class="mt-12 w-full md:hidden  ">
                     <button type="submit"
@@ -154,31 +192,6 @@
 
     <script>
         $(document).ready(function() {
-            var flatpickrElement = document.getElementById('laravel-flatpickr');
-
-            if (flatpickrElement && flatpickrElement._flatpickr) {
-                flatpickrElement._flatpickr.config.onChange.push(function(selectedDates, dateStr, instance) {
-                    if (selectedDates.length === 2) {
-                        var startDate = selectedDates[0];
-                        var endDate = selectedDates[1];
-
-                        if (startDate && endDate && startDate <= endDate) {
-                            var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-                            var pricePerDay = {{ $car->price_per_day }};
-                            var totalPrice = duration * pricePerDay;
-                            $('#duration span').text(duration + ' days');
-                            $('#total-price span').text(totalPrice + ' $');
-                        } else {
-                            $('#duration span').text('-- days');
-                            $('#total-price span').text('-- $');
-                        }
-                    } else {
-                        $('#duration span').text('-- days');
-                        $('#total-price span').text('-- $');
-                    }
-                });
-            }
-
             document.getElementById("mobile_submit_button").addEventListener("click", function() {
                 document.getElementById("reservation_form").submit();
             });
