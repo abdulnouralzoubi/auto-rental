@@ -101,10 +101,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 // ------------------- lessor routes --------------------------------------- //
 
 Route::prefix('lessor')->middleware('lessor')->group(function () {
-    Route::get(
-        '/dashboard',
-        lessorDashboardController::class
-    )->name('lessorDashboard');
+    Route::get('/dashboard', [lessorDashboardController::class, 'index'])->name('lessorDashboard');
     Route::resource('cars', LesCarController::class)->names('lessor.cars');
 
     // Route::resource('reservations', ReservationController::class);

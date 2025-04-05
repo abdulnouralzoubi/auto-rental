@@ -28,5 +28,12 @@ class adminDemo extends Seeder
             'role' => 'client',
             'avatar' => '/images/avatars/avatar_6.jpg'
         ]);
+        User::create([
+            'name' => 'Test Lessor',
+            'email' => 'test_lessor@email.com',
+            'password' => Hash::make('pass1234'),
+            'role' => 'lessor',
+            'avatar' => '/images/avatars/avatar_6.jpg'
+        ]);
     }
 }

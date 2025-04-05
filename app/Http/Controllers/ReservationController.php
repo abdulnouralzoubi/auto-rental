@@ -50,10 +50,10 @@ class ReservationController extends Controller
         $end = Carbon::parse($request->end_date);
 
         // Check if the user has more than 2 reservations
-        $userReservationsCount = Reservation::where('user_id', $user->id)->count();
-        if ($userReservationsCount >= 2) {
-            return redirect()->back()->with('error', 'You cannot have more than 2 active reservations 😉.');
-        }
+        // $userReservationsCount = Reservation::where('user_id', $user->id)->count();
+        // if ($userReservationsCount >= 2) {
+        //     return redirect()->back()->with('error', 'You cannot have more than 2 active reservations 😉.');
+        // }
 
         // extract start and end date from the request
         $reservation_dates = explode(' to ', $request->reservation_dates);

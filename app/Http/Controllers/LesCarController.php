@@ -15,7 +15,7 @@ class LesCarController extends Controller
      */
     public function index()
     {
-        $cars = Car::latest()->paginate(8);
+        $cars = Car::where('lessor_id', auth()->user()->id)->paginate(8);
         return view('lessor.cars', compact('cars'));
     }
 
@@ -32,8 +32,8 @@ class LesCarController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
+            'lessor_id' => 'required|exists:users,id',
             'brand' => 'required',
             'model' => 'required',
             'engine' => 'required',
@@ -46,6 +46,7 @@ class LesCarController extends Controller
         ]);
 
         $car = new Car;
+        $car->lessor_id = $request->lessor_id;
         $car->brand = $request->brand;
         $car->model = $request->model;
         $car->engine = $request->engine;

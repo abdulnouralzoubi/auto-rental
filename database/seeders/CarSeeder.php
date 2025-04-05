@@ -15,6 +15,7 @@ class CarSeeder extends Seeder
     {
         $cars = [
             [
+				'lessor_id' => 3,
                 'brand' => 'Toyota',
                 'model' => 'Camry',
                 'engine' => '2.5L',
@@ -26,6 +27,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Honda',
                 'model' => 'Civic',
                 'engine' => '1.8L',
@@ -37,6 +39,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Ford',
                 'model' => 'Mustang',
                 'engine' => '5.0L V8',
@@ -48,6 +51,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'BMW',
                 'model' => 'X5',
                 'engine' => '3.0L',
@@ -60,6 +64,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Mercedes-Benz',
                 'model' => 'E-Class',
                 'engine' => '2.0L',
@@ -72,6 +77,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Chevrolet',
                 'model' => 'Malibu',
                 'engine' => '1.5L',
@@ -84,6 +90,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Audi',
                 'model' => 'A4',
                 'engine' => '2.0L',
@@ -96,6 +103,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Nissan',
                 'model' => 'Altima',
                 'engine' => '2.5L',
@@ -108,6 +116,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Hyundai',
                 'model' => 'Sonata',
                 'engine' => '2.5L',
@@ -120,6 +129,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Kia',
                 'model' => 'Optima',
                 'engine' => '2.0L',
@@ -132,6 +142,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Volkswagen',
                 'model' => 'Golf',
                 'engine' => '1.4L',
@@ -144,6 +155,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Subaru',
                 'model' => 'Impreza',
                 'engine' => '2.0L',
@@ -156,6 +168,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Ford',
                 'model' => 'Focus',
                 'engine' => '1.6L',
@@ -168,6 +181,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Tesla',
                 'model' => 'Model 3',
                 'engine' => 'Electric',
@@ -180,6 +194,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Chevrolet',
                 'model' => 'Camaro',
                 'engine' => '6.2L V8',
@@ -192,6 +207,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Jaguar',
                 'model' => ' F-Type',
                 'engine' => '3.0L V6',
@@ -204,6 +220,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Lexus',
                 'model' => 'RX 350',
                 'engine' => '3.5L V6',
@@ -216,6 +233,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Volvo',
                 'model' => 'XC60',
                 'engine' => '2.0L',
@@ -228,6 +246,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Porsche',
                 'model' => '911 Carrera',
                 'engine' => '3.0L Flat-6',
@@ -240,6 +259,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Mitsubishi',
                 'model' => 'Outlander',
                 'engine' => '2.4L',
@@ -252,6 +272,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Land Rover',
                 'model' => 'Range Rover Sport',
                 'engine' => '3.0L V6',
@@ -264,6 +285,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'GMC',
                 'model' => 'Sierra_1500',
                 'engine' => '5.3L V8',
@@ -276,6 +298,7 @@ class CarSeeder extends Seeder
                 'stars' => 4,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Fiat',
                 'model' => '500',
                 'engine' => '1.4L',
@@ -288,6 +311,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Mini',
                 'model' => 'Cooper',
                 'engine' => '1.5L',
@@ -299,6 +323,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Audi',
                 'model' => 'Q5',
                 'engine' => '2.0L',
@@ -310,6 +335,7 @@ class CarSeeder extends Seeder
                 'reduce' => 40,
                 'stars' => 5,
             ], [
+				'lessor_id' => 3,
                 'brand' => 'Chevrolet',
                 'model' => 'Tahoe',
                 'engine' => '5.3L V8',
@@ -322,6 +348,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Ford',
                 'model' => 'Explorer',
                 'engine' => '3.5L V6',
@@ -334,6 +361,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Jeep',
                 'model' => 'Wrangler',
                 'engine' => '3.6L V6',
@@ -346,6 +374,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Mazda',
                 'model' => 'CX-5',
                 'engine' => ' 2.5L',
@@ -358,6 +387,7 @@ class CarSeeder extends Seeder
                 'stars' => 5,
             ],
             [
+				'lessor_id' => 3,
                 'brand' => 'Hyundai',
                 'model' => 'Tucson',
                 'engine' => ' 2.0L',
@@ -373,6 +403,7 @@ class CarSeeder extends Seeder
 
         foreach ($cars as $car) {
             DB::table('cars')->insert([
+				'lessor_id' => 3,
                 'brand' => $car['brand'],
                 'model' => $car['model'],
                 'engine' => $car['engine'],

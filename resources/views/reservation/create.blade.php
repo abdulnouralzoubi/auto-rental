@@ -9,26 +9,30 @@
                     {
                         from: "{{ $reservation->start_date }}",
                         to: "{{ $reservation->end_date }}"
-                    }
+                    },
                 @endforeach
             ];
-            console.log(disabledDates);
+            // console.log(disabledDates);
 
             flatpickrElement.flatpickr({
                 mode: "range",
                 dateFormat: "Y-m-d",
                 disable: disabledDates,
+                minDate: "today",
                 onChange: function(selectedDates, dateStr, instance) {
                     if (selectedDates.length === 2) {
                         var startDate = selectedDates[0];
                         var endDate = selectedDates[1];
-
-                        if (startDate && endDate && startDate <= endDate) {
-                            var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+                        if (startDate && endDate && startDate < endDate) {
+                            var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
                             var pricePerDay = {{ $car->price_per_day }};
                             var totalPrice = duration * pricePerDay;
                             document.getElementById('duration').innerText = `Estimated Duration: ${duration} days`;
                             document.getElementById('total-price').innerText = `Estimated Price: ${totalPrice} $`;
+                        } else if (startDate && endDate && toString(startDate) == toString(endDate)) {
+                            var pricePerDay = {{ $car->price_per_day }};
+                            document.getElementById('duration').innerText = `Estimated Duration: 1 day`;
+                            document.getElementById('total-price').innerText = `Estimated Price: ${pricePerDay} $`;
                         } else {
                             document.getElementById('duration').innerText = 'Estimated Duration: -- days';
                             document.getElementById('total-price').innerText = 'Estimated Price: -- $';

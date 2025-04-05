@@ -9,6 +9,8 @@
 
                     <div class="grid grid-cols-1 mt-10 gap-x-6 gap-y-8 sm:grid-cols-6">
 
+                        <input type="hidden" name="lessor_id" value="{{ Auth::user()->id }}">
+
                         <div class="sm:col-span-3">
                             <label for="brand" class="block text-sm font-medium leading-6 text-gray-900">Brand</label>
                             <div class="mt-2">
@@ -136,8 +138,8 @@
                             <div class="mt-2">
                                 <select id="status" name="status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option value="available">Available</option>
-                                    <option value="unavailable">Unavailable</option>
+                                    <option value="Available">Available</option>
+                                    <option value="Unavailable">Unavailable</option>
                                 </select>
                             </div>
                             @error('status')
