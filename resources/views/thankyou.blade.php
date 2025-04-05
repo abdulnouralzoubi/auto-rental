@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Thank you</title>
-    @vite('resources/css/app.css')
-    <link rel="icon" type="image/x-icon" href="/images/logo-mmc-new.webp">
-</head>
-
-<body class="mx-auto max-w-screen-xl bg-gray-200">
+@extends('layouts.myapp')
+@section('content')
     <div class="h-screen bg-gray-200 flex justify-center items-center ">
         <div class="bg-white md:w-3/5 h-4/5 rounded-lg mx-4 shadow-xl flex flex-col justify-start items-center gap-8">
             <div class="w-32 mt-10">
@@ -66,10 +55,5 @@
 
             </div>
         </div>
-
-
-
     </div>
-</body>
-
-</html>
+@endsection

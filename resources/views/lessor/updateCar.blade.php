@@ -162,7 +162,7 @@
 
 
                 <div class="flex items-center justify-center gap-x-6 mb-6">
-                    <button type="reset"
+                    <button type="reset" onclick="window.location='{{ route('lessor.cars.index') }}'"
                         class="text-sm font-semibold leading-6 text-gray-900 border-2 border-pr-200 p-1 w-20 rounded-md hover:bg-white bg-sec-300">Cancel</button>
                     <button type="submit"
                         class="w-1/3 rounded-md bg-pr-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pr-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pr-400">Save</button>

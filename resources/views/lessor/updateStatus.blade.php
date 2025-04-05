@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="bg-gray-200 flex justify-center items-center h-screen">
+@extends('layouts.myapp')
+@section('content')
+    <div class="my-20 flex flex-col justify-center items-center mx-auto max-w-screen-xl">
         <div class="bg-white p-6 rounded-md md:w-1/3 w-full mx-4">
             <h2 class="text-center font-car font-medium text-xl">{{ $reservation->car->brand }}
                 {{ $reservation->car->model }}</h2>
@@ -42,6 +32,4 @@
         </div>
 
     </div>
-</body>
-
-</html>
+@endsection

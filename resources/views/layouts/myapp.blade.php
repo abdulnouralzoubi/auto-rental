@@ -324,8 +324,9 @@
         @yield('content')
     </main>
     {{-- --------------------------------------------------------------- Footer  --------------------------------------------------------------- --}}
-    @if (Auth::check() && Auth::user()->role == 'admin' && Request::is('admin/*'))
-        <footer class="bg-gray-800 py-4 px-4 sm:px-6 w-full bottom-0">            <div class="text-center text-gray-400">
+    @if (Auth::check() && Auth::user()->role == 'admin' && Request::is('admin/*') || Auth::user()->role == 'lessor' && Request::is('lessor/*'))
+        <footer class="bg-gray-800 py-4 px-4 sm:px-6 w-full relative bottom-0">
+            <div class="text-center text-gray-400">
                 <p class="mb-2">&copy; <a href="#" class="hover:underline" style="color: #ff9b00;">Rent Rover</a>. All Rights Reserved<span class="m-0">. Developed by <a href="https://github.com/abdulnouralzoubi" class="hover:underline" style="color: #ff9b00;">RoadCoders</a>™</span></p>
             </div>
         </footer>
