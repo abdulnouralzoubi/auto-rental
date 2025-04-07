@@ -1,7 +1,7 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="flex flex-col justify-center items-center gap-12 my-8 mx-auto max-w-screen-xl ">
-        <img src="/images/logos/LOGO.png" alt=" logo" class="w-[150px]">
+        <img src="/images/logo-mmc-new.webp" alt=" logo" class="w-[150px]">
         <h2 class="text-5xl font-medium text-center"> Terms & Conditions
         </h2>
         <div class=" text-start flex flex-col  gap-8 md:w-2/3 w-4/5">

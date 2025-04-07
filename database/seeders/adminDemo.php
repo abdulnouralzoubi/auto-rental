@@ -22,6 +22,13 @@ class adminDemo extends Seeder
             'avatar' => '/images/avatars/avatar_2.jpg'
         ]);
         User::create([
+            'name' => 'Test Lessor',
+            'email' => 'test_lessor@email.com',
+            'password' => Hash::make('pass1234'),
+            'role' => 'lessor',
+            'avatar' => '/images/avatars/avatar_6.jpg'
+        ]);
+        User::create([
             'name' => 'Test User',
             'email' => 'test_user@email.com',
             'password' => Hash::make('pass1234'),
@@ -29,10 +36,17 @@ class adminDemo extends Seeder
             'avatar' => '/images/avatars/avatar_6.jpg'
         ]);
         User::create([
-            'name' => 'Test Lessor',
-            'email' => 'test_lessor@email.com',
+            'name' => 'Test User2',
+            'email' => 'test_user2@email.com',
             'password' => Hash::make('pass1234'),
-            'role' => 'lessor',
+            'role' => 'client',
+            'avatar' => '/images/avatars/avatar_6.jpg'
+        ]);
+        User::create([
+            'name' => 'Test User3',
+            'email' => 'test_user3@email.com',
+            'password' => Hash::make('pass1234'),
+            'role' => 'client',
             'avatar' => '/images/avatars/avatar_6.jpg'
         ]);
     }

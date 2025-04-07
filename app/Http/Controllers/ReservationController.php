@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Reservation;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -27,7 +28,13 @@ class ReservationController extends Controller
         $user = auth()->user();
         $car = Car::find($car_id);
         $car_reservation = Reservation::where('car_id', $car_id)->get();
-        return view('reservation.create', compact('car', 'user', 'car_reservation'));
+        $reviews = Review::where('car_id', $car_id)->with('user')->get();
+        $userReview = Review::where('car_id', $car_id)->where('user_id', $user->id)->first();
+        $canReview = Reservation::where('car_id', $car_id)
+                                ->where('user_id', $user->id)
+                                ->exists() && !$userReview;
+
+        return view('reservation.create', compact('car', 'user', 'car_reservation', 'reviews', 'canReview', 'userReview'));
     }
 
     /**
@@ -52,7 +59,7 @@ class ReservationController extends Controller
         // Check if the user has more than 2 reservations
         // $userReservationsCount = Reservation::where('user_id', $user->id)->count();
         // if ($userReservationsCount >= 2) {
-        //     return redirect()->back()->with('error', 'You cannot have more than 2 active reservations 😉.');
+        //     return redirect()->back()->with('error', 'You cannot have more than 2 active reservations.');
         // }
 
         // extract start and end date from the request

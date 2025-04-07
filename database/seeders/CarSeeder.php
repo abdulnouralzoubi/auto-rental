@@ -413,6 +413,8 @@ class CarSeeder extends Seeder
                 'status' => $car['status'],
                 'reduce' => $car['reduce'],
                 'stars' => $car['stars'],
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
     }
